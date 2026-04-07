@@ -3,38 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DS Validator — UniCesumar</title>
+<title>DS Validator — Uniasselvi</title>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0d12;--bg2:#111620;--bg3:#161c28;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);--text:#e8edf5;--text2:#7a8599;--text3:#4a5468;--accent:#0084da;--accent2:#4bdeff;--ok:#3dbd79;--warn:#ffb700;--err:#d73938;--ok-bg:rgba(61,189,121,0.1);--warn-bg:rgba(255,183,0,0.1);--err-bg:rgba(215,57,56,0.1);--r:10px;--rl:16px;}
+:root{
+  /* Uniasselvi — amarelo primário, teal secundário, fundo escuro neutro */
+  --bg:#0e0e0e;
+  --bg2:#181818;
+  --bg3:#212121;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --text:#ffffff;
+  --text2:#a0a0a0;
+  --text3:#555555;
+  --accent:#ffea00;      /* amarelo — cor primária Uniasselvi */
+  --accent2:#00a6a6;     /* teal — cor secundária */
+  --ok:#3dc39a;
+  --warn:#eea84c;
+  --err:#d95538;
+  --ok-bg:rgba(61,195,154,0.1);
+  --warn-bg:rgba(238,168,76,0.1);
+  --err-bg:rgba(217,85,56,0.1);
+  --r:10px;--rl:16px;
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Onest',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,132,218,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,132,218,0.025) 1px,transparent 1px);background-size:48px 48px;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,234,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,234,0,0.03) 1px,transparent 1px);background-size:48px 48px;}
 .wrap{max-width:960px;margin:0 auto;padding:52px 24px 100px;position:relative;z-index:1;}
 .logo-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-.logo-box{width:38px;height:38px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;}
+.logo-box{width:38px;height:38px;background:#ffea00;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#000;}
 .logo-lbl{font-size:12px;font-weight:500;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;}
 h1{font-size:clamp(30px,5vw,44px);font-weight:700;letter-spacing:-1.5px;line-height:1.05;margin-bottom:12px;}
-h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h1 em{font-style:normal;color:#ffea00;}
 .hdesc{font-size:15px;color:var(--text2);max-width:520px;margin-bottom:20px;}
 .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;}
 .pill{font-size:11px;font-family:'JetBrains Mono',monospace;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);color:var(--text3);}
-.icard{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rl);padding:28px;margin-bottom:32px;}
+.icard{background:var(--bg2);border:1px solid rgba(255,234,0,0.2);border-radius:var(--rl);padding:28px;margin-bottom:32px;}
 .ilbl{font-size:11px;font-weight:600;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
 .fields{display:grid;grid-template-columns:1fr 260px auto;gap:10px;}
 @media(max-width:680px){.fields{grid-template-columns:1fr;}}
 .fi{height:44px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:0 14px;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--text);outline:none;transition:border-color .2s;width:100%;}
-.fi:focus{border-color:var(--accent);}
+.fi:focus{border-color:#ffea00;}
 .fi::placeholder{color:var(--text3);}
-.btn{height:44px;padding:0 28px;background:var(--accent);border:none;border-radius:var(--r);color:#fff;font-size:14px;font-weight:600;font-family:'Onest',sans-serif;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .1s;}
+.btn{height:44px;padding:0 28px;background:#ffea00;border:none;border-radius:var(--r);color:#000;font-size:14px;font-weight:600;font-family:'Onest',sans-serif;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .1s;}
 .btn:hover{opacity:.85;}
 .btn:active{transform:scale(.98);}
 .btn:disabled{opacity:.35;cursor:not-allowed;}
 .hint{font-size:12px;color:var(--text3);margin-top:12px;}
-.hint a{color:var(--accent2);text-decoration:none;}
+.hint a{color:#ffea00;text-decoration:none;}
 .ebar{display:none;background:var(--err-bg);border:1px solid rgba(215,57,56,.2);border-radius:var(--r);padding:12px 16px;font-size:13px;color:#f09d9a;margin-bottom:20px;}
 .loading{display:none;text-align:center;padding:72px 0;}
-.spinner{width:34px;height:34px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px;}
+.spinner{width:34px;height:34px;border:2px solid var(--border2);border-top-color:#ffea00;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .ltitle{font-size:15px;color:var(--text2);}
 .lstep{font-size:12px;color:var(--text3);margin-top:6px;font-family:'JetBrains Mono',monospace;}
@@ -46,7 +65,7 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 .sgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:32px;}
 @media(max-width:640px){.sgrid{grid-template-columns:repeat(3,1fr);}} @media(max-width:900px){.sgrid{grid-template-columns:repeat(3,1fr);}}
 .sc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:18px 16px;position:relative;overflow:hidden;}
-.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .7s .1s ease;}
+.sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#ffea00;transform:scaleX(0);transform-origin:left;transition:transform .7s .1s ease;}
 .sc.ld::after{transform:scaleX(1);}
 .sc.g::after{background:var(--ok);}
 .sc.w::after{background:var(--warn);}
@@ -61,7 +80,7 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto;}
 .tab{font-size:13px;font-weight:500;font-family:'Onest',sans-serif;padding:10px 20px;color:var(--text2);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:color .15s;}
 .tab:hover{color:var(--text);}
-.tab.on{color:var(--text);border-bottom-color:var(--accent);}
+.tab.on{color:#ffea00;border-bottom-color:#ffea00;}
 .tp{display:none;}
 .tp.on{display:block;}
 .sec{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;margin-bottom:12px;}
@@ -71,7 +90,7 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 .bok{background:var(--ok-bg);color:var(--ok);}
 .berr{background:var(--err-bg);color:#f09d9a;}
 .bwarn{background:var(--warn-bg);color:var(--warn);}
-.binfo{background:rgba(0,132,218,.1);color:var(--accent2);}
+.binfo{background:rgba(0,166,166,.15);color:#00a6a6;}
 .bmanual{background:rgba(255,183,0,0.12);color:var(--warn);}
 .row{display:flex;align-items:flex-start;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);gap:12px;}
 .row:last-child{border-bottom:none;padding-bottom:0;}
@@ -80,7 +99,7 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 .rn{font-size:13px;color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .rs{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:3px;}
 .rframe{font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-top:3px;}
-.rp{font-size:11px;color:var(--accent2);font-family:'JetBrains Mono',monospace;margin-top:3px;opacity:.8;}
+.rp{font-size:11px;color:#00a6a6;font-family:'JetBrains Mono',monospace;margin-top:3px;opacity:.9;}
 .rr{display:flex;align-items:center;gap:8px;flex-shrink:0;padding-top:2px;}
 .cnt{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;}
 .dot{width:16px;height:16px;border-radius:50%;border:1px solid var(--border2);flex-shrink:0;}
@@ -90,7 +109,7 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 .idot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
 .ititle{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px;}
 .imeta{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;line-height:1.6;}
-.iframe{font-size:11px;color:var(--accent2);font-family:'JetBrains Mono',monospace;margin-top:4px;}
+.iframe{font-size:11px;color:#00a6a6;font-family:'JetBrains Mono',monospace;margin-top:4px;}
 .inode{font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-top:2px;}
 .issue-right{flex-shrink:0;}
 .legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding:12px 16px;background:var(--bg3);border-radius:var(--r);border:1px solid var(--border);}
@@ -107,14 +126,14 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 <div class="wrap">
   <div class="logo-row">
     <div class="logo-box">DS</div>
-    <span class="logo-lbl">UniCesumar Design System</span>
+    <span class="logo-lbl">Uniasselvi Design System</span>
   </div>
   <h1>Design System<br><em>Validator</em></h1>
   <p class="hdesc">Verifica componentes, cores, tipografia, espaçamentos e radius — incluindo se os valores estão vinculados às variáveis do DS ou digitados manualmente.</p>
   <div class="pills">
-    <span class="pill">font: Onest</span>
+    <span class="pill">fonts: Titillium Web · Roboto</span>
     <span class="pill">138 color vars</span>
-    <span class="pill">122 component sets</span>
+    <span class="pill">194 component sets</span>
     <span class="pill">spacing: 2·4·8·12·16·24·32·40·48·80·120·160</span>
     <span class="pill">radius: 4·8·12·16·24·40·500</span>
   </div>
@@ -177,12 +196,58 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--ac
 const PROXY = '/api/figma';
 
 const DS = {
-  acceptedFonts: ['Onest'], // Única fonte oficial do DS UniCesumar
+  acceptedFonts: ['Titillium Web','Roboto'], // Fontes oficiais do DS Uniasselvi
   spacing: [2,4,8,12,16,24,32,40,48,80,120,160],
   radius:  [4,8,12,16,24,40,500],
-  colors: ["#ddf2ff","#5fb8fc","#0084da","#023860","#0e3043","#eaf6fe","#b1e2ff","#246bf7","#0a4694","#07233e","#ebf9fc","#b3e9f5","#4bdeff","#2f96be","#033a52","#edf1f2","#e1e6e8","#cad0d3","#aab1b5","#66747e","#ffffff","#101214","#daebf6","#8bc2e5","#3e9ad3","#1e5e85","#0a202e","#d8f3e5","#87d8ad","#3dbd79","#247047","#0c2719","#fdf3d8","#fadb8f","#ffb700","#b48409","#3a2b03","#f7d9d9","#e78888","#d73938","#881b1b","#400d01","#fdf7f7","#f8e8e7","#f4d9d7","#f4aba6","#f0746c","#f8f7fd","#e7e1f9","#d8cef5","#ac93f5","#7f58f5","#fdf9f2","#f7ebd4","#f2dfb8","#e3bd70","#e0ac42","#f3f9fc","#ebf4f9","#cae3f0","#84bddc","#387fa5","#fffeee","#fff8b0","#ffea00","#e7d300","#cebd00","#e9f3f2","#b5e1db","#00a6a6","#008f8f","#006666","#f3fbfa","#d8f5f2","#05dfcd","#00ccc2","#00a6a3","#eceeee","#dee0e0","#cfd3d3","#bbc0c0","#979c9c","#616867","#000000","#dceefa","#afd8ee","#4fa8e1","#2d8ac4","#172b4d","#cdf6ea","#84d5af","#3dc39a","#03885f","#00281c","#ffebd1","#ffc67c","#eea84c","#ad6500","#442701","#ffdcd4","#f09d9a","#d95538","#9c2308","#fffaf5","#ffeedb","#ffe4c6","#ffba6b","#e29b43","#fefdec","#fdfad8","#faf298","#e5d20b","#4e4804","#e5ffe7","#ccffcf","#b6ffbb","#73e57b","#24b22e","#fbf0ff","#f5e4fc","#efd4fa","#d07ff0","#a83fd1","#3c3f40","#242627","#110011"],
+  colors: [
+    // Primitives - Unicesumar (compartilhadas)
+    "#ddf2ff","#5fb8fc","#0084da","#023860","#0e3043","#eaf6fe","#b1e2ff","#246bf7","#0a4694","#07233e",
+    "#ebf9fc","#b3e9f5","#4bdeff","#2f96be","#033a52","#edf1f2","#e1e6e8","#cad0d3","#aab1b5","#66747e",
+    "#ffffff","#101214","#daebf6","#8bc2e5","#3e9ad3","#1e5e85","#0a202e","#d8f3e5","#87d8ad","#3dbd79",
+    "#247047","#0c2719","#fdf3d8","#fadb8f","#ffb700","#b48409","#3a2b03","#f7d9d9","#e78888","#d73938",
+    "#881b1b","#400d01","#fdf7f7","#f8e8e7","#f4d9d7","#f4aba6","#f0746c","#f8f7fd","#e7e1f9","#d8cef5",
+    "#ac93f5","#7f58f5","#fdf9f2","#f7ebd4","#f2dfb8","#e3bd70","#e0ac42","#f3f9fc","#ebf4f9","#cae3f0",
+    "#84bddc","#387fa5","#979c9c","#3c3f40","#242627","#101111",
+    // Primitives - Uniasselvi (específicas)
+    "#fffeee","#fff8b0","#ffea00","#e7d300","#cebd00",
+    "#e9f3f2","#b5e1db","#00a6a6","#008f8f","#006666",
+    "#e6f1f2","#91c5c9","#51a1a8","#22868f","#006e78",
+    "#eceeee","#dee0e0","#cfd3d3","#bbc0c0","#616867",
+    "#dceefa","#afd8ee","#4fa8e1","#2d8ac4","#172b4d",
+    "#cdf6ea","#84d5af","#3dc39a","#03885f","#00281c",
+    "#ffebd1","#ffc67c","#eea84c","#ad6500","#442701",
+    "#ffdcd4","#f09d9a","#d95538","#9c2308",
+    "#fffaf5","#ffeedb","#ffe4c6","#ffba6b","#e29b43",
+    "#fefdec","#fdfad8","#faf298","#e5d20b","#4e4804",
+    "#e5ffe7","#ccffcf","#b6ffbb","#73e57b","#24b22e",
+    "#fbf0ff","#f5e4fc","#efd4fa","#d07ff0","#a83fd1",
+    "#000000"
+  ],
   // Nomes de component sets do DS principal (comparação case-insensitive)
-  componentSets: ["accordion","accordion-header","accordion-header-vertical","accordion-line","accordion-line-vertical","accordion-vertical","alert","animated icon","audio player","avatar","avatar sm","avatar giant","badge","badge-title-text","bottom sheet","breadcrumb","breadcrumb-item","button-filter","button-md","button-oblong","button-round","button-sm","button-square","card campus","card course","card course showcase","card-billy-ad","card-billy-ad-sm","card-blog","card-enroll","card-faculty-course","card-home-hero","carousel-course","carousel-faculty-course","carousel-expertise-areas","carousel-related-courses","carousel-video","carousel simple","check-box","credit-card","datepicker","datepicker date","fixed bar","footer","header - desktop","header big link","header-mobile","header-tablet","header-carousel","header-carousel-vertical","icon base","illustration","illustration base","input","link-footer","list header menu","list-footer","location form","login form","logo-unicesumar","logo_uniasselvi_horizontal","map","mega-menu","mega-menu-v2","menu","menu-footer-support","menu-header-support","menu-item","menu-options","modal","multiselect","option","option container","otp","pagination","photo slider","price-bottom-course","progress bar","radio button","radio list item","radio-option-select","rating","resume-payment","searcharticles-filter","searchbar","select","select-sort","shimmer","single column table","single slide indicator","slider controller","social buttons","soft-lead","soft-lead-vertical","square-icon","status","step","stepper","switch","tab group","tab item","tag","tag group for cards","text button","textarea","tooltip","upload file","vertical stepper with badges","card-simple-01","card-simple-01-sm","box",".list item",".bodycell",".headercell","base list item","button illustrated","calendar day","card-video","cover","cover pill","table","arrow-narrow-right","arrow-right","brand icon","message"],
+  componentSets: [
+    // Componentes do DS Uniasselvi (194 component sets)
+    "accordion","accordion-header","accordion-header-vertical","accordion-line","accordion-line-vertical","accordion-vertical",
+    "alert","animated-icon","audio player","avatar","avatar sm","badge","badge-title-text","bottom sheet",
+    "breadcrumb","breadcrumb-item","button-filter","button-md","button-oblong","button-round","button-sm",
+    "button - big illustrated","button social whatsapp","calendar day","card campus","card course","card course showcase",
+    "card-billy-ad","card-billy-ad-sm","card-blog","card-enroll","card-faculty-course","card-video",
+    "carousel simple","carousel-course","carousel-faculty","carousel-video","check-box","circle progress",
+    "confirmation form","cover","cover pill","credit-card","datepicker","datepicker date",
+    "fixed bar","footer","header desktop","header mobile","header-carroussel","header-carroussel-vertical",
+    "icon base","illustration base","illustrations","input","link-footer","list-footer",
+    "location form","login form","logo-uniasselvi","map","menu","menu-footer-support","menu-item",
+    "modal","multiselect","option","option container","otp","pagination","photo slider",
+    "pop over","price-bottom-course","progress bar","pulse","radio button","radio list item",
+    "radio-option-select","rating","resume-payment","searcharticles-filter","searchbar",
+    "select","select-sort","shimmer","single column table","single slide indicator","slider controller",
+    "social button","soft-lead","soft-lead-vertical","square-icon","status","steps-item","switch",
+    "tab group","tab item","tag","text_button","textarea","tooltip","upload file","wave","wave v2",
+    "double wave","skeleton double","skeleton pulse","skeleton wave",
+    ".list item",".bodycell",".headercell","base list item","box",".card-simple-01",".card-simple-01-sm",
+    ".single column table body cell",".single column table header cell",".headercell",
+    "card acessibilidade","card entry methods","card progress horizontal","card progress vertical",
+    "arrow-narrow-right","arrow-right","brand icon"
+  ],
   // Biblioteca de ícones DS Icon Library
   // Component sets: "Icon Base" (DS principal), "Icon", "Icons", "Payment method icon" (icon lib)
   // Ícones individuais têm nome "Component 1/nome-do-icone" ou nome simples sem set pai
@@ -538,7 +603,7 @@ function walk(node, acc, parentMap, componentMap) {
     if (!acc.fonts[f]) acc.fonts[f] = {family:f, count:0, locations:[]};
     acc.fonts[f].count++;
     // Capturar caminho completo para fontes fora do DS
-    if (f !== 'Onest' && acc.fonts[f].locations.length < 20) {
+    if (!DS.acceptedFonts.includes(f) && acc.fonts[f].locations.length < 20) {
       // path já contém toda a hierarquia de ancestrais (topFrame → ... → parentFrame)
       const fullPath = path.join(' › ') || node.name;
       const textPreview = (node.characters || '').slice(0, 40).replace(/\n/g,' ');
@@ -885,9 +950,9 @@ function renderResults(d){
     const isErr = item.status === 'FAIL';
     // Cor do badge por nível — sempre consistente
     const levelBadge = {
-      'A':   'background:#d73938;color:#ffdcd4',
-      'AA':  'background:#ffb700;color:#3a2b03',
-      'AAA': 'background:#246bf7;color:#eaf6fe'
+      'A':   'background:rgba(217,85,56,0.2);color:#f09d9a',
+      'AA':  'background:rgba(255,234,0,0.15);color:#e7d300',
+      'AAA': 'background:rgba(0,166,166,0.2);color:#00a6a6'
     }[item.level] || '';
     return `<div class="issue-card ${isErr?'high':'medium'}" style="margin-bottom:8px">
       <div class="idot" style="background:${isErr?'var(--err)':'var(--warn)'}"></div>
