@@ -6,29 +6,10 @@
 <title>DS Validator — Uniasselvi</title>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  /* Uniasselvi — amarelo primário, teal secundário, fundo escuro neutro */
-  --bg:#0e0e0e;
-  --bg2:#181818;
-  --bg3:#212121;
-  --border:rgba(255,255,255,0.07);
-  --border2:rgba(255,255,255,0.13);
-  --text:#ffffff;
-  --text2:#a0a0a0;
-  --text3:#555555;
-  --accent:#ffea00;      /* amarelo — cor primária Uniasselvi */
-  --accent2:#00a6a6;     /* teal — cor secundária */
-  --ok:#3dc39a;
-  --warn:#eea84c;
-  --err:#d95538;
-  --ok-bg:rgba(61,195,154,0.1);
-  --warn-bg:rgba(238,168,76,0.1);
-  --err-bg:rgba(217,85,56,0.1);
-  --r:10px;--rl:16px;
-}
+:root{--bg:#0e0e0e;--bg2:#181818;--bg3:#212121;--border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);--text:#ffffff;--text2:#a0a0a0;--text3:#555555;--accent:#ffea00;--accent2:#00a6a6;--ok:#3dc39a;--warn:#eea84c;--err:#d95538;--ok-bg:rgba(61,195,154,0.1);--warn-bg:rgba(238,168,76,0.1);--err-bg:rgba(217,85,56,0.1);--r:10px;--rl:16px;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Onest',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,234,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,234,0,0.03) 1px,transparent 1px);background-size:48px 48px;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,234,0,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,234,0,0.025) 1px,transparent 1px);background-size:48px 48px;}
 .wrap{max-width:960px;margin:0 auto;padding:52px 24px 100px;position:relative;z-index:1;}
 .logo-row{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
 .logo-box{width:38px;height:38px;background:#ffea00;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#000;}
@@ -38,7 +19,7 @@ h1 em{font-style:normal;color:#ffea00;}
 .hdesc{font-size:15px;color:var(--text2);max-width:520px;margin-bottom:20px;}
 .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px;}
 .pill{font-size:11px;font-family:'JetBrains Mono',monospace;padding:4px 10px;border-radius:99px;border:1px solid var(--border2);color:var(--text3);}
-.icard{background:var(--bg2);border:1px solid rgba(255,234,0,0.2);border-radius:var(--rl);padding:28px;margin-bottom:32px;}
+.icard{background:var(--bg2);border:1px solid rgba(255,234,0,0.25);border-radius:var(--rl);padding:28px;margin-bottom:32px;}
 .ilbl{font-size:11px;font-weight:600;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
 .fields{display:grid;grid-template-columns:1fr 260px auto;gap:10px;}
 @media(max-width:680px){.fields{grid-template-columns:1fr;}}
@@ -98,7 +79,7 @@ h1 em{font-style:normal;color:#ffea00;}
 .rl{flex:1;min-width:0;}
 .rn{font-size:13px;color:var(--text);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .rs{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:3px;}
-.rframe{font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;margin-top:3px;}
+.rframe{font-size:11px;color:#00a6a6;font-family:'JetBrains Mono',monospace;margin-top:3px;}
 .rp{font-size:11px;color:#00a6a6;font-family:'JetBrains Mono',monospace;margin-top:3px;opacity:.9;}
 .rr{display:flex;align-items:center;gap:8px;flex-shrink:0;padding-top:2px;}
 .cnt{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;}
@@ -132,8 +113,8 @@ h1 em{font-style:normal;color:#ffea00;}
   <p class="hdesc">Verifica componentes, cores, tipografia, espaçamentos e radius — incluindo se os valores estão vinculados às variáveis do DS ou digitados manualmente.</p>
   <div class="pills">
     <span class="pill">fonts: Titillium Web · Roboto</span>
-    <span class="pill">138 color vars</span>
-    <span class="pill">194 component sets</span>
+    <span class="pill">67 color vars (Semantic Uniasselvi)</span>
+    <span class="pill">122 component sets</span>
     <span class="pill">spacing: 2·4·8·12·16·24·32·40·48·80·120·160</span>
     <span class="pill">radius: 4·8·12·16·24·40·500</span>
   </div>
@@ -200,53 +181,63 @@ const DS = {
   spacing: [2,4,8,12,16,24,32,40,48,80,120,160],
   radius:  [4,8,12,16,24,40,500],
   colors: [
-    // Primitives - Unicesumar (compartilhadas)
-    "#ddf2ff","#5fb8fc","#0084da","#023860","#0e3043","#eaf6fe","#b1e2ff","#246bf7","#0a4694","#07233e",
-    "#ebf9fc","#b3e9f5","#4bdeff","#2f96be","#033a52","#edf1f2","#e1e6e8","#cad0d3","#aab1b5","#66747e",
-    "#ffffff","#101214","#daebf6","#8bc2e5","#3e9ad3","#1e5e85","#0a202e","#d8f3e5","#87d8ad","#3dbd79",
-    "#247047","#0c2719","#fdf3d8","#fadb8f","#ffb700","#b48409","#3a2b03","#f7d9d9","#e78888","#d73938",
-    "#881b1b","#400d01","#fdf7f7","#f8e8e7","#f4d9d7","#f4aba6","#f0746c","#f8f7fd","#e7e1f9","#d8cef5",
-    "#ac93f5","#7f58f5","#fdf9f2","#f7ebd4","#f2dfb8","#e3bd70","#e0ac42","#f3f9fc","#ebf4f9","#cae3f0",
-    "#84bddc","#387fa5","#979c9c","#3c3f40","#242627","#101111",
-    // Primitives - Uniasselvi (específicas)
-    "#fffeee","#fff8b0","#ffea00","#e7d300","#cebd00",
-    "#e9f3f2","#b5e1db","#00a6a6","#008f8f","#006666",
-    "#e6f1f2","#91c5c9","#51a1a8","#22868f","#006e78",
-    "#eceeee","#dee0e0","#cfd3d3","#bbc0c0","#616867",
-    "#dceefa","#afd8ee","#4fa8e1","#2d8ac4","#172b4d",
-    "#cdf6ea","#84d5af","#3dc39a","#03885f","#00281c",
-    "#ffebd1","#ffc67c","#eea84c","#ad6500","#442701",
-    "#ffdcd4","#f09d9a","#d95538","#9c2308",
-    "#fffaf5","#ffeedb","#ffe4c6","#ffba6b","#e29b43",
-    "#fefdec","#fdfad8","#faf298","#e5d20b","#4e4804",
-    "#e5ffe7","#ccffcf","#b6ffbb","#73e57b","#24b22e",
-    "#fbf0ff","#f5e4fc","#efd4fa","#d07ff0","#a83fd1",
-    "#000000"
+    // 67 cores únicas — Semantic/Uniasselvi + Semantic/Uniasselvi Dark (sem Unicesumar)
+    "#000000","#00281c","#006666","#006e78","#008f8f","#00a6a6","#03885f",
+    "#101111","#172b4d","#22868f","#242627","#24b22e","#2d8ac4","#3c3f40",
+    "#3dc39a","#400d01","#442701","#4e4804","#4fa8e1","#51a1a8","#616867",
+    "#73e57b","#84d5af","#91c5c9","#979c9c","#9c2308","#a83fd1","#aab1b5",
+    "#ad6500","#afd8ee","#b5e1db","#b6ffbb","#bbc0c0","#ccffcf","#cdf6ea",
+    "#cebd00","#cfd3d3","#d07ff0","#d95538","#dceefa","#dee0e0","#e29b43",
+    "#e5d20b","#e5ffe7","#e6f1f2","#e7d300","#e9f3f2","#eceeee","#eea84c",
+    "#efd4fa","#f09d9a","#f5e4fc","#faf298","#fbf0ff","#fdfad8","#fefdec",
+    "#ffba6b","#ffc67c","#ffdcd4","#ffe4c6","#ffea00","#ffebd1","#ffeedb",
+    "#fff8b0","#fffaf5","#fffeee","#ffffff"
   ],
   // Nomes de component sets do DS principal (comparação case-insensitive)
+  // 120 component sets EXATOS + 43 componentes avulsos válidos (extraídos do DS Uniasselvi)
   componentSets: [
-    // Componentes do DS Uniasselvi (194 component sets)
-    "accordion","accordion-header","accordion-header-vertical","accordion-line","accordion-line-vertical","accordion-vertical",
-    "alert","animated-icon","audio player","avatar","avatar sm","badge","badge-title-text","bottom sheet",
-    "breadcrumb","breadcrumb-item","button-filter","button-md","button-oblong","button-round","button-sm",
-    "button - big illustrated","button social whatsapp","calendar day","card campus","card course","card course showcase",
+    ".bodycell",".card-simple-01",".card-simple-01-sm",".headercell",".list item",
+    ".single column table body cell",".single column table header cell",
+    "accordion","accordion-header","accordion-header-vertical",
+    "accordion-line","accordion-line-vertical","accordion-vertical",
+    "acessibility - reference numbers","alert","animated-icon","audio player",
+    "avatar","avatar sm","badge","badge-title-text","base list item",
+    "bottom sheet","box","breadcrumb","breadcrumb-item",
+    "button - big illustrated","button social whatsapp",
+    "button-filter","button-md","button-oblong","button-round","button-sm",
+    "calendar day","card acessibilidade","card campus","card course","card course showcase",
+    "card entry methods 1","card progress horizontal","card progress vertical",
     "card-billy-ad","card-billy-ad-sm","card-blog","card-enroll","card-faculty-course","card-video",
-    "carousel simple","carousel-course","carousel-faculty","carousel-video","check-box","circle progress",
-    "confirmation form","cover","cover pill","credit-card","datepicker","datepicker date",
-    "fixed bar","footer","header desktop","header mobile","header-carroussel","header-carroussel-vertical",
-    "icon base","illustration base","illustrations","input","link-footer","list-footer",
-    "location form","login form","logo-uniasselvi","map","menu","menu-footer-support","menu-item",
-    "modal","multiselect","option","option container","otp","pagination","photo slider",
-    "pop over","price-bottom-course","progress bar","pulse","radio button","radio list item",
-    "radio-option-select","rating","resume-payment","searcharticles-filter","searchbar",
-    "select","select-sort","shimmer","single column table","single slide indicator","slider controller",
-    "social button","soft-lead","soft-lead-vertical","square-icon","status","steps-item","switch",
-    "tab group","tab item","tag","text_button","textarea","tooltip","upload file","wave","wave v2",
-    "double wave","skeleton double","skeleton pulse","skeleton wave",
-    ".list item",".bodycell",".headercell","base list item","box",".card-simple-01",".card-simple-01-sm",
-    ".single column table body cell",".single column table header cell",".headercell",
-    "card acessibilidade","card entry methods","card progress horizontal","card progress vertical",
-    "arrow-narrow-right","arrow-right","brand icon"
+    "carousel simple","carousel-course","carousel-faculty","carousel-video",
+    "check-box","circle progress","confirmation form","cover","cover pill",
+    "credit-card","datepicker","datepicker date","double wave",
+    "fixed bar","footer","grid","header desktop","header mobile",
+    "header-carroussel","header-carroussel-vertical",
+    "icon base","illustration base","illustrations","input",
+    "link-footer","list-footer","location form","login form","logo-uniasselvi",
+    "map","menu","menu-footer-support","menu-item","modal",
+    "multiselect","option","option container","otp","pagination","photo slider",
+    "pop over","price-bottom-course","progress bar","pulse",
+    "radio button","radio list item","radio-option-select","rating","resume-payment",
+    "searcharticles-filter","searchbar","select","select-sort","shimmer",
+    "single column table","single slide indicator","slider controller",
+    "social button","soft-lead","soft-lead-vertical","square-icon",
+    "status","steps-item","switch","tab group","tab item","tag",
+    "text_button","textarea","tooltip","upload file","wave","wave v2",
+    // Componentes avulsos válidos (sem component set pai)
+    ".header",".highlight",".row",".title card",
+    "banner app","banner-fluid-blog-mosaic","base card","body text",
+    "button-filter/menu-header-support","can we help",
+    "card-expertise-areas","card-promo","carousel simple gradient",
+    "carousel-expertise-areas","carousel-related-courses","carousel-video-sm",
+    "carrousel video verbatim","carrousel-blog",
+    "enceja","enem","form doc sent","header mobile-tablet",
+    "list header menu","map pin","map pop up content","marquee",
+    "nubank","offer-switch","photo","pix","placholder slot",
+    "portador-diploma","section-top-arrow-ornament","steppers",
+    "subscription form","table","tag group for cards","tag-discount",
+    "toast","transferencia","upload enroll doc",
+    "vertical stepper with badges","vestibular-online"
   ],
   // Biblioteca de ícones DS Icon Library
   // Component sets: "Icon Base" (DS principal), "Icon", "Icons", "Payment method icon" (icon lib)
@@ -466,22 +457,21 @@ function compInDS(compSetName, compName) {
   const setN  = (compSetName || '').toLowerCase().trim();
   const compN = (compName || '').toLowerCase().trim();
 
-  // 1. Verificar pelo component SET — fonte mais confiável
+  // 1. Verificar pelo component set — comparação exata (case-insensitive)
   if (setN && DS.componentSets.some(c => c === setN)) return true;
 
   // 2. Ícones da biblioteca DS Icon Library
-  // Sets: "Icon Base", "Icon", "Icons", "Payment method icon"
   if (setN && DS.iconSetNames.some(s => s === setN)) return true;
 
-  // 3. Ícones avulsos sem set pai: nome no padrão "Component 1/nome-icone"
-  if (!setN && compN.startsWith('component 1/')) return true;
+  // 3. Ícone avulso: padrão "Component 1/nome-icone"
+  if (compN.startsWith('component 1/')) return true;
 
-  // 4. Ícones avulsos sem set pai e sem prefixo: verificar se o component set
-  // pai é "Icon Base" — nesses casos compSetName vem vazio mas o pai real
-  // já foi validado como "Icon Base" acima na hierarquia
-  // Fallback: se não tem set pai mas tem nome simples de ícone (sem espaços, kebab-case)
-  // e o nome do nó sugere que é ícone, consideramos válido
-  if (!setN && /^[a-z0-9-]+$/.test(compN) && compN.length < 40) return true;
+  // 4. Componente sem set pai — verificar na lista de avulsos válidos
+  if (!setN && DS.componentSets.some(c => c === compN)) return true;
+
+  // 5. Ícone avulso sem prefixo — kebab-case simples (nome do ícone da lib)
+  // Ex: "arrow-narrow-right", "heart", "chevron-down"
+  if (!setN && /^[a-z][a-z0-9-]*$/.test(compN) && compN.length < 50 && !compN.includes(' ')) return true;
 
   return false;
 }
@@ -736,15 +726,47 @@ async function analyzeFile(fileKey, token) {
 
   const issues = [];
   // Cores erradas (fora do DS)
-  for (const c of colors.filter(c=>!c.inDS))
-    issues.push({sev:'high', type:'cor', title:`Cor fora do DS: ${c.hex}`, detail:`${c.count}x — substituir por ${c.closestDS} (dist: ${c.dist})`, frames:c.frames.slice(0,3), node:null});
+  for (const c of colors.filter(c=>!c.inDS)) {
+    const locs = c.wrongColor || [];
+    const uniqFrames = [...new Set(locs.map(l=>l.fullPath.split(' › ')[0]))].slice(0,3);
+    issues.push({sev:'high', type:'cor',
+      title:`Cor fora do DS: ${c.hex}`,
+      detail:`${c.count}x — substituir por ${c.closestDS} (dist: ${c.dist})`,
+      frames: uniqFrames.length ? uniqFrames : c.frames.slice(0,3),
+      fullPath: locs.length ? locs[0].fullPath : (c.frames[0]||''),
+      node: locs.length ? `nó: ${locs[0].nodeName}` : null
+    });
+  }
   // Cores certas mas sem variável vinculada
-  for (const c of colors.filter(c=>c.inDS && c.noVar.length > 0))
-    issues.push({sev:'medium', type:'cor', title:`Cor sem variável vinculada: ${c.hex}`, detail:`${c.noVar.length} nó(s) com valor manual — vincular à variável do DS`, frames:[...new Set(c.noVar.map(l=>l.fullPath.split(' › ')[0]))].slice(0,3), node:null});
+  for (const c of colors.filter(c=>c.inDS && c.noVar.length > 0)) {
+    const locs = c.noVar || [];
+    issues.push({sev:'medium', type:'cor',
+      title:`Cor sem variável vinculada: ${c.hex}`,
+      detail:`${locs.length} nó(s) com valor manual — vincular à variável do DS`,
+      frames: [...new Set(locs.map(l=>l.fullPath.split(' › ')[0]))].slice(0,3),
+      fullPath: locs.length ? locs[0].fullPath : '',
+      node: locs.length ? `nó: ${locs[0].nodeName} (${locs[0].nodeType})` : null
+    });
+  }
   for (const c of components.filter(c=>!c.inDS))
-    issues.push({sev:c.count>=5?'high':'medium', type:'componente', title:`Componente fora do DS: ${c.name}`, detail:`${c.count}x`, frames:[c.topFrame].filter(Boolean), node:c.nodeName!==c.name?c.nodeName:null});
-  for (const f of fonts.filter(f=>!f.inDS))
-    issues.push({sev:'high', type:'tipografia', title:`Fonte fora do DS: ${f.family}`, detail:`${f.count}x — usar Onest`, frames:[], node:null});
+    issues.push({sev:c.count>=5?'high':'medium', type:'componente',
+      title:`Componente fora do DS: ${c.name}`,
+      detail:`${c.count}x`,
+      frames:[c.topFrame].filter(Boolean),
+      fullPath: c.topFrame,
+      node: c.nodeName!==c.name ? `nó renomeado: "${c.nodeName}"` : null
+    });
+  for (const f of fonts.filter(f=>!f.inDS)) {
+    const locs = f.locations || [];
+    const uniqFrames = [...new Set(locs.map(l=>l.fullPath.split(' › ')[0]))].slice(0,3);
+    issues.push({sev:'high', type:'tipografia',
+      title:`Fonte fora do DS: ${f.family}`,
+      detail:`${f.count}x — usar Titillium Web ou Roboto`,
+      frames: uniqFrames,
+      fullPath: locs.length ? locs[0].fullPath : '',
+      node: locs.length ? `"${locs[0].textPreview}"` : null
+    });
+  }
   for (const t of manualWrong.slice(0,15))
     issues.push({sev:'high', type:t.kind, title:`${t.prop} = ${t.value}px — valor e variável incorretos`, detail:`${t.count}x — valor fora dos tokens e sem variável vinculada`, frames:[t.topFrame], parentFrame:t.parentFrame, node:t.nodeName});
   for (const t of manualOk.slice(0,15))
@@ -793,8 +815,16 @@ function bdg(ok){return`<span class="bdg ${ok?'bok':'berr'}">${ok?'DS':'fora'}</
 function sbdg(s){return`<span class="bdg ${s==='high'?'berr':'bwarn'}">${s}</span>`;}
 
 function issueCard(i){
-  const fp = i.frames?.length ? `<div class="iframe">▸ ${i.frames.join(', ')}${i.parentFrame&&i.parentFrame!==i.frames[0]?` › ${i.parentFrame}`:''}</div>` : '';
-  const np = i.node ? `<div class="inode">nó: ${i.node}</div>` : '';
+  // Sempre mostrar o caminho mais completo disponível
+  let pathStr = '';
+  if (i.fullPath && i.fullPath.length > 0) {
+    pathStr = i.fullPath;
+  } else if (i.frames?.length) {
+    pathStr = i.frames.join(', ');
+    if (i.parentFrame && i.parentFrame !== i.frames[0]) pathStr += ' › ' + i.parentFrame;
+  }
+  const fp = pathStr ? `<div class="iframe">▸ ${pathStr}</div>` : '';
+  const np = i.node ? `<div class="inode">${i.node}</div>` : '';
   return `<div class="issue-card ${i.sev}">
     <div class="idot" style="background:${i.sev==='high'?'var(--err)':'var(--warn)'}"></div>
     <div style="flex:1"><div class="ititle">${i.title}</div><div class="imeta">${i.type} · ${i.detail}</div>${fp}${np}</div>
@@ -950,9 +980,9 @@ function renderResults(d){
     const isErr = item.status === 'FAIL';
     // Cor do badge por nível — sempre consistente
     const levelBadge = {
-      'A':   'background:rgba(217,85,56,0.2);color:#f09d9a',
-      'AA':  'background:rgba(255,234,0,0.15);color:#e7d300',
-      'AAA': 'background:rgba(0,166,166,0.2);color:#00a6a6'
+      'A':   'background:#d73938;color:#ffdcd4',
+      'AA':  'background:#ffb700;color:#3a2b03',
+      'AAA': 'background:#246bf7;color:#eaf6fe'
     }[item.level] || '';
     return `<div class="issue-card ${isErr?'high':'medium'}" style="margin-bottom:8px">
       <div class="idot" style="background:${isErr?'var(--err)':'var(--warn)'}"></div>
